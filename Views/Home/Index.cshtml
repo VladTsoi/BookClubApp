@@ -1,0 +1,39 @@
+﻿@model BookClubApp.Models.User
+
+@{
+    ViewBag.Title = "Вход в систему";
+}
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    input.input-validation-error {
+        border: 1px solid red;
+    }
+
+    input.valid {
+        border: 1px solid green;
+    }
+
+    .validation-summary-errors {
+        color: red;
+    }
+</style>
+<h2>Вход в систему</h2>
+<form method="post">
+    <div class="form-group">
+
+    <p>
+        @Html.DisplayNameFor(model => model.Login)<br />
+        <input type="text" class="form-control" asp-for="Login" /><br />
+        <span id="helpBlock2" class="help-block" asp-validation-for="Login" />
+    <p />
+    <div asp-validation-summary="ModelOnly"></div>
+    <input type="submit" value="Войти" class="btn btn-success" />
+    </div>
+</form>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>

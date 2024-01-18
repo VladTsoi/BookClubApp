@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BookClubApp.Models.Catalog>
+@{
+    ViewData["Title"] = "Каталог книг";
+}
+
+@using (Html.BeginForm())
+{
+    <center><h2>Ваши книги</h2></center>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(modelItem => modelItem.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(modelItem => modelItem.Name)
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <form asp-controller="Home" asp-action="PutAway" method="post" asp-route-id="@item.Id">
+                            <input type="submit" value="Убрать" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
